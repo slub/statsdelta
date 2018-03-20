@@ -101,14 +101,13 @@ def run():
         delta_header.append('delta_' + output_field)
 
     for from_key, from_values in from_dict.items():
-        to_values = to_dict[from_key]
-
         delta_row = {}
         diff_value = NOT_CHANGED
 
         delta_row[key_field] = from_key.strip()
 
-        if to_values is not None:
+        if from_key in to_dict:
+            to_values = to_dict[from_key]
             for output_field in output_fields:
                 from_value = from_values[output_field]
                 to_value = to_values[output_field]
