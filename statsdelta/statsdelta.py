@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 import argparse
+import collections
 import csv
+import sys
 import uuid
 
 QUOTECHAR = '"'
@@ -52,8 +54,6 @@ def run():
                                     help='The file to use as the right or to source for the delta calculation',
                                     dest='to_file', required=True)
     required_arguments.add_argument('-key-field', type=str, help='The key field name (column name)', dest='key_field', required=True)
-    required_arguments.add_argument('-output-file-name', type=str, help='The output file name', dest='output_file_name',
-                                    required=True)
 
     optional_arguments.add_argument('-delimiter', type=str, default=',',
                                     help='The field delimiter used within the file; use TAB for tab-delimited')
@@ -66,7 +66,6 @@ def run():
     from_file = args.from_file
     to_file = args.to_file
     key_field = args.key_field
-    output_file_name = args.output_file_name
     delimiter = args.delimiter
 
     output_fields = []
@@ -152,11 +151,13 @@ def run():
 
             delta_dict[to_key] = delta_row
 
-    with open(output_file_name, 'w', newline='') as csvfile:
+    sorted_delta_dict = collections.OrderedDict(sorted(delta_dict.items()))
+
+    with sys.stdout as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=delta_header, dialect='unix')
 
         writer.writeheader()
-        for delta_value in delta_dict.values():
+        for delta_value in sorted_delta_dict.values():
             writer.writerow(delta_value)
 
 

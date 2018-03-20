@@ -11,7 +11,6 @@ required arguments:
   -from FROM_FILE                      The file to use as the left or from source for the delta calculation (default: None)
   -to TO_FILE                          The file to use as the right or to source for the delta calculation (default: None)
   -key-field KEY_FIELD                 The key field name (column name) (default: None)
-  -output-file-name OUTPUT_FILE_NAME   The output file name (default: None)
 
 optional arguments:
   -h, --help                           show this help message and exit
@@ -21,7 +20,7 @@ optional arguments:
 
 * example:
     ```
-    statsdelta -from [PATH THE FROM CSV FILE] -to [PATH TO THE TO CSV FILE] -key-field [KEY FIELD NAME] -output-file-name [PATH TO THE OUTPUT CSV FILE]
+    statsdelta -from [PATH THE FROM CSV FILE] -to [PATH TO THE TO CSV FILE] -key-field [KEY FIELD NAME] > [PATH TO THE OUTPUT CSV FILE]
     ```
 
 ## Run
