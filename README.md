@@ -27,7 +27,7 @@ optional arguments:
 
 * clone this git repo or just download the [statsdelta.py](statsdelta/statsdelta.py) file
 * run ./statsdelta.py
-* for a hackish way to use esfstats system-wide, copy to /usr/local/bin
+* for a hackish way to use statsdelta system-wide, copy to /usr/local/bin
 
 ### Install system-wide via pip
 
