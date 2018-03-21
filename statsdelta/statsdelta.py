@@ -113,12 +113,12 @@ def run():
                 to_value = to_values[output_field]
                 delta_value = "{0:.2f}".format(float(from_value) - float(to_value))
                 delta_row['from_' + output_field] = from_value
-                delta_row['to_' + output_field] = from_value
+                delta_row['to_' + output_field] = to_value
                 final_delta_value = delta_value
                 if float(delta_value) > 0:
                     final_delta_value = '+' + str(delta_value)
                 delta_row['delta_' + output_field] = final_delta_value
-                if delta_value != 0:
+                if delta_value != '0.00':
                     diff_value = CHANGED
         else:
             diff_value = DELETED
