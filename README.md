@@ -35,3 +35,14 @@ optional arguments:
 sudo -H pip3 install --upgrade [ABSOLUTE PATH TO YOUR LOCAL GIT REPOSITORY OF STATSDELTA]
 ```
 (which provides you ```statsdelta``` as a system-wide commandline command)
+
+## Description
+
+### Diff Status
+
+|Diff Status|Description|
+|-----------|-----------|
+|changed|some values (statistics) have been changed for this field (key)|
+|not changed|no values (statistics) have been changed for this field (key)|
+|added|this field (key) has been added to the 'to' statistic|
+|deleted|this field (key) has been removed from the 'to' statistic|
