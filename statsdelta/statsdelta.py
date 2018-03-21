@@ -68,6 +68,9 @@ def run():
     key_field = args.key_field
     delimiter = args.delimiter
 
+    if delimiter == 'TAB':
+        delimiter = '\t'
+
     output_fields = []
     if args.output_fields is not None:
         output_fields = args.output_fields.split(',')
