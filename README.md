@@ -15,13 +15,17 @@ required arguments:
 optional arguments:
   -h, --help                           show this help message and exit
   -delimiter DELIMITER                 The field delimiter used within the file; use TAB for tab-delimited (default: ,)
-  -output-fields OUTPUT_FIELDS         The names of the fields (column names) to include in the delta output (if this argument is not specified, then the header from the "from" CSV file is taken) (default: None)
+  -output-fields OUTPUT_FIELDS         The names of the fields (column names) to include in the delta output (if this argument is not specified, then the header from the "from" CSV file is taken (i.e. all columns from the "from" CSV file); it's always mandatory that these columns only contain numeric values (otherwise an error will be thrown at processing time)) (default: None)
 ```
 
 * example:
     ```
     statsdelta -from [PATH THE FROM CSV FILE] -to [PATH TO THE TO CSV FILE] -key-field [KEY FIELD NAME] > [PATH TO THE OUTPUT CSV FILE]
     ```
+
+### Note
+
+Please make sure that the choosen output fields (columns) only contain numeric values (otherwise an error will be thrown at processing time). This is especially important when the argument '-output-fields' is not specified, because then the header from the "from" CSV file is taken (i.e. all columns from the "from" CSV file).
 
 ## Run
 

@@ -58,7 +58,7 @@ def run():
     optional_arguments.add_argument('-delimiter', type=str, default=',',
                                     help='The field delimiter used within the file; use TAB for tab-delimited')
     optional_arguments.add_argument('-output-fields', type=str,
-                                    help='The names of the fields (column names) to include in the delta output (if this argument is not specified, then the header from the "from" CSV file is taken)', dest='output_fields')
+                                    help='The names of the fields (column names) to include in the delta output (if this argument is not specified, then the header from the "from" CSV file is taken (i.e. all columns from the "from" CSV file); it\'s always mandatory that these columns only contain numeric values (otherwise an error will be thrown at processing time))', dest='output_fields')
     parser._action_groups.append(optional_arguments)
 
     args = parser.parse_args()
