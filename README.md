@@ -27,6 +27,10 @@ optional arguments:
 
 Please make sure that the choosen output fields (columns) only contain numeric values (otherwise an error will be thrown at processing time). This is especially important when the argument '-output-fields' is not specified, because then the header from the "from" CSV file is taken (i.e. all columns from the "from" CSV file).
 
+### Current Limitations
+
+Currently, column indices/numbers are not supported (see [issue #1](https://github.com/slub/statsdelta/issues/1)), i.e., only column names. So header in the CSV files are mandatory.
+
 ## Run
 
 * clone this git repo or just download the [statsdelta.py](statsdelta/statsdelta.py) file
