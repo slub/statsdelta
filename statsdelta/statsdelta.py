@@ -114,7 +114,7 @@ def run():
             for output_field in output_fields:
                 from_value = from_values[output_field]
                 to_value = to_values[output_field]
-                delta_value = "{0:.2f}".format(float(from_value) - float(to_value))
+                delta_value = "{0:.2f}".format(float(to_value) - float(from_value))
                 delta_row['from_' + output_field] = from_value
                 delta_row['to_' + output_field] = to_value
                 final_delta_value = delta_value
